@@ -13,3 +13,5 @@ module.exports = {
   '**/*.{yml,mdx}': [prettier],
   '**/*/package.json': 'npm run precommit',
 };
+
+// This configuration runs ESLint and Prettier on staged files before committing.
