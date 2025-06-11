@@ -18,6 +18,7 @@ import MyForm from '@documenso/ui/primitives/form-custom';
 import { Input } from '@documenso/ui/primitives/input';
 import { useToast } from '@documenso/ui/primitives/use-toast';
 
+import { AdvancedFilterDialog } from '~/components/dialogs/advanced-filte-dialog';
 import { ArtistCreateDialog } from '~/components/dialogs/artist-create-dialog';
 import { DocumentSearch } from '~/components/general/document/document-search';
 import { GeneralTableEmptyState } from '~/components/tables/general-table-empty-state';
@@ -466,7 +467,7 @@ export default function TablePage() {
           )}
 
           <h2 className="text-4xl font-semibold">
-            <Trans>Music</Trans>
+            <Trans>Virgin</Trans>
           </h2>
         </div>
         <div className="-m-1 flex flex-wrap gap-x-4 gap-y-6 overflow-hidden p-1">
@@ -483,7 +484,7 @@ export default function TablePage() {
             <TableArtistFilter artistData={artistData} isLoading={artistDataloading} />
 
             <Button onClick={openCreateDialog}>Add Item</Button>
-
+            <AdvancedFilterDialog tableToConsult="Virgin" />
             <ArtistCreateDialog />
           </div>
         </div>

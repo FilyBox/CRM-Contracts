@@ -140,16 +140,6 @@ msgstr "{0} ti ha invitato a {recipientActionVerb} il documento \"{1}\"."
 msgid "{0} invited you to {recipientActionVerb} a document"
 msgstr "{0} ti ha invitato a {recipientActionVerb} un documento"
 
-#. placeholder {0}: memberName || memberEmail
-#: packages/email/templates/team-join.tsx
-msgid "{0} joined the team {teamName}"
-msgstr ""
-
-#. placeholder {0}: memberName || memberEmail
-#: packages/email/templates/team-leave.tsx
-msgid "{0} left the team {teamName}"
-msgstr ""
-
 #. placeholder {0}: remaining.documents
 #. placeholder {1}: quota.documents
 #: apps/remix/app/components/general/document/document-upload.tsx
@@ -181,10 +171,6 @@ msgstr "{0} Destinatario(i)"
 msgid "{charactersRemaining, plural, one {1 character remaining} other {{charactersRemaining} characters remaining}}"
 msgstr "{charactersRemaining, plural, one {1 carattere rimanente} other {{charactersRemaining} caratteri rimanenti}}"
 
-#: packages/email/templates/document-invite.tsx
-msgid "{inviterName} <0>({inviterEmail})</0>"
-msgstr "{inviterName} <0>({inviterEmail})</0>"
-
 #: packages/email/templates/document-cancel.tsx
 msgid "{inviterName} has cancelled the document {documentName}, you don't need to sign it anymore."
 msgstr "{inviterName} ha annullato il documento {documentName}, non è più necessario firmarlo."
@@ -197,14 +183,6 @@ msgstr "{inviterName} ha annullato il documento<0/>\"{documentName}\""
 #: packages/email/template-components/template-document-invite.tsx
 msgid "{inviterName} has invited you to {0}<0/>\"{documentName}\""
 msgstr "{inviterName} ti ha invitato a {0}<0/>\"{documentName}\""
-
-#: packages/email/templates/document-invite.tsx
-msgid "{inviterName} has invited you to {action} {documentName}"
-msgstr "{inviterName} ti ha invitato a {action} {documentName}"
-
-#: packages/email/templates/document-invite.tsx
-msgid "{inviterName} has invited you to {action} the document \"{documentName}\"."
-msgstr "{inviterName} ti ha invitato a {action} il documento \"{documentName}\"."
 
 #: packages/email/templates/recipient-removed-from-document.tsx
 msgid "{inviterName} has removed you from the document {documentName}."
@@ -224,18 +202,6 @@ msgstr "{inviterName} a nome di \"{0}\" ti ha invitato a {recipientActionVerb} i
 #: packages/email/template-components/template-document-invite.tsx
 msgid "{inviterName} on behalf of \"{teamName}\" has invited you to {0}<0/>\"{documentName}\""
 msgstr "{inviterName} per conto di \"{teamName}\" ti ha invitato a {0}<0/>\"{documentName}\""
-
-#: packages/email/templates/document-invite.tsx
-msgid "{inviterName} on behalf of \"{teamName}\" has invited you to {action} {documentName}"
-msgstr "{inviterName} per conto di \"{teamName}\" ti ha invitato a {action} {documentName}"
-
-#: packages/email/templates/team-join.tsx
-msgid "{memberEmail} joined the following team"
-msgstr "{memberEmail} si è unito al seguente team"
-
-#: packages/email/templates/team-leave.tsx
-msgid "{memberEmail} left the following team"
-msgstr "{memberEmail} ha lasciato il seguente team"
 
 #: apps/remix/app/routes/_authenticated+/t.$teamUrl+/settings.billing.tsx
 msgid "{numberOfSeats, plural, one {# member} other {# members}}"
@@ -351,22 +317,10 @@ msgstr "{recipientName} {action} un documento utilizzando uno dei tuoi link dire
 msgid "{recipientName} has rejected the document '{documentName}'"
 msgstr "{recipientName} ha rifiutato il documento '{documentName}'"
 
-#: packages/email/template-components/template-document-recipient-signed.tsx
-msgid "{recipientReference} has completed signing the document."
-msgstr "{recipientReference} ha completato la firma del documento."
-
 #. placeholder {0}: document.title
 #: packages/lib/jobs/definitions/emails/send-recipient-signed-email.handler.ts
 msgid "{recipientReference} has signed \"{0}\""
 msgstr "{recipientReference} ha firmato \"{0}\""
-
-#: packages/email/template-components/template-document-recipient-signed.tsx
-msgid "{recipientReference} has signed \"{documentName}\""
-msgstr "{recipientReference} ha firmato \"{documentName}\""
-
-#: packages/email/templates/document-recipient-signed.tsx
-msgid "{recipientReference} has signed {documentName}"
-msgstr "{recipientReference} ha firmato {documentName}"
 
 #: apps/remix/app/components/forms/public-profile-form.tsx
 #: apps/remix/app/components/dialogs/public-profile-template-manage-dialog.tsx
@@ -381,10 +335,6 @@ msgstr "{signerName} ha rifiutato il documento \"{documentName}\"."
 #: packages/email/template-components/template-document-invite.tsx
 msgid "{teamName} has invited you to {0}<0/>\"{documentName}\""
 msgstr "{teamName} ti ha invitato a {0}<0/>\"{documentName}\""
-
-#: packages/email/templates/document-invite.tsx
-msgid "{teamName} has invited you to {action} {documentName}"
-msgstr "{teamName} ti ha invitato a {action} {documentName}"
 
 #: packages/email/templates/team-transfer-request.tsx
 msgid "{teamName} ownership transfer request"
@@ -426,10 +376,6 @@ msgstr "<0>\"{0}\"</0>non è più disponibile per la firma"
 #: packages/email/templates/team-transfer-request.tsx
 msgid "<0>{senderName}</0> has requested that you take ownership of the following team"
 msgstr "<0>{senderName}</0> ha richiesto di prendere in carico il seguente team"
-
-#: packages/email/templates/confirm-team-email.tsx
-msgid "<0>{teamName}</0> has requested to use your email address for their team."
-msgstr ""
 
 #: apps/remix/app/components/tables/lpm-table-artist-filter.tsx
 msgid "<0>Artist:</0> All"
@@ -636,18 +582,10 @@ msgstr ""
 msgid "A stable internet connection"
 msgstr "Una connessione Internet stabile"
 
-#: packages/email/templates/team-join.tsx
-msgid "A team member has joined a team"
-msgstr ""
-
 #. placeholder {0}: team.name
 #: packages/lib/jobs/definitions/emails/send-team-member-left-email.handler.ts
 msgid "A team member has left {0}"
 msgstr "Un membro del team ha lasciato {0}"
-
-#: packages/email/templates/team-leave.tsx
-msgid "A team member has left a team"
-msgstr ""
 
 #: packages/email/templates/team-delete.tsx
 #: packages/email/templates/team-delete.tsx
@@ -669,18 +607,8 @@ msgstr "Un'email di verifica sarà inviata all'email fornita."
 
 #: apps/remix/app/components/general/teams/team-invitations.tsx
 #: packages/email/templates/team-transfer-request.tsx
-#: packages/email/templates/team-invite.tsx
-#: packages/email/templates/confirm-team-email.tsx
 msgid "Accept"
 msgstr "Accetta"
-
-#: packages/email/templates/team-invite.tsx
-msgid "Accept invitation to join a team"
-msgstr ""
-
-#: packages/email/templates/confirm-team-email.tsx
-msgid "Accept team email request for {teamName}"
-msgstr ""
 
 #: packages/email/templates/team-transfer-request.tsx
 msgid "Accept team transfer request"
@@ -904,11 +832,15 @@ msgstr "Dopo aver firmato un documento elettronicamente, avrai la possibilità d
 msgid "After submission, a document will be automatically generated and added to your documents page. You will also receive a notification via email."
 msgstr "Dopo l'invio, un documento verrà generato automaticamente e aggiunto alla tua pagina dei documenti. Riceverai anche una notifica via email."
 
+#: apps/remix/app/components/general/task/tustreams-type.tsx
+#: apps/remix/app/components/general/task/tustreams-type.tsx
 #: apps/remix/app/components/general/task/release-type.tsx
 #: apps/remix/app/components/general/task/release-type.tsx
 msgid "Album"
 msgstr ""
 
+#: apps/remix/app/components/general/task/tustreams-type.tsx
+#: apps/remix/app/components/general/task/tustreams-type.tsx
 #: apps/remix/app/components/general/task/task-status.tsx
 #: apps/remix/app/components/general/task/task-priority.tsx
 #: apps/remix/app/components/general/task/release-type.tsx
@@ -918,6 +850,10 @@ msgstr ""
 #: apps/remix/app/components/general/document/document-status.tsx
 msgid "All"
 msgstr "Tutto"
+
+#: apps/remix/app/components/general/app-command-menu.tsx
+msgid "All contracts"
+msgstr ""
 
 #: apps/remix/app/components/general/app-command-menu.tsx
 msgid "All documents"
@@ -962,10 +898,6 @@ msgstr "Tutti i modelli"
 #: apps/remix/app/components/general/period-selector.tsx
 msgid "All Time"
 msgstr "Tutto il tempo"
-
-#: packages/email/templates/confirm-team-email.tsx
-msgid "Allow document recipients to reply directly to this email address"
-msgstr "Consenti ai destinatari del documento di rispondere direttamente a questo indirizzo email"
 
 #: apps/remix/app/components/embed/authoring/configure-document-recipients.tsx
 #: packages/ui/primitives/template-flow/add-template-placeholder-recipients.tsx
@@ -1177,6 +1109,12 @@ msgstr "Si è verificato un errore durante l'aggiornamento del tuo profilo."
 msgid "An error occurred while uploading your document."
 msgstr "Si è verificato un errore durante il caricamento del tuo documento."
 
+#: apps/remix/app/components/dialogs/advanced-filte-dialog.tsx
+#: apps/remix/app/components/dialogs/advanced-filte-dialog.tsx
+#: apps/remix/app/components/dialogs/advanced-filte-dialog.tsx
+msgid "An error occurred. Please try again."
+msgstr ""
+
 #: apps/remix/app/components/general/generic-error-layout.tsx
 msgid "An unexpected error occurred."
 msgstr "Si è verificato un errore inaspettato."
@@ -1311,17 +1249,13 @@ msgstr "Sei sicuro di voler eliminare questo team?"
 msgid "Are you sure?"
 msgstr "Sei sicuro?"
 
-#: apps/remix/app/components/tables/releases-table.tsx
+#: apps/remix/app/components/tables/tustreams-table.tsx
 #: apps/remix/app/components/tables/lpm-table.tsx
 msgid "Artist"
 msgstr ""
 
 #: apps/remix/app/components/dialogs/artist-create-dialog.tsx
 msgid "Artist created successfully"
-msgstr ""
-
-#: apps/remix/app/components/tables/releases-table.tsx
-msgid "Artists"
 msgstr ""
 
 #: apps/remix/app/components/general/task/tasks-list.tsx
@@ -1501,10 +1435,6 @@ msgstr "Importazione Massiva"
 msgid "Bulk Send Complete: {0}"
 msgstr "Invio Massivo Completato: {0}"
 
-#: packages/email/templates/bulk-send-complete.tsx
-msgid "Bulk send operation complete for template \"{templateName}\""
-msgstr "Operazione di invio massivo completata per il modello \"{templateName}\""
-
 #: apps/remix/app/components/dialogs/template-bulk-send-dialog.tsx
 msgid "Bulk Send Template via CSV"
 msgstr "Invio modello in blocco tramite CSV"
@@ -1513,14 +1443,6 @@ msgstr "Invio modello in blocco tramite CSV"
 #: apps/remix/app/components/dialogs/template-bulk-send-dialog.tsx
 msgid "Bulk Send via CSV"
 msgstr "Invio Massivo via CSV"
-
-#: packages/email/templates/team-invite.tsx
-msgid "by <0>{senderName}</0>"
-msgstr "da <0>{senderName}</0>"
-
-#: packages/email/templates/confirm-team-email.tsx
-msgid "By accepting this request, you will be granting <0>{teamName}</0> access to:"
-msgstr "Accettando questa richiesta, concederai l'accesso a <0>{teamName}</0> a:"
 
 #: packages/email/templates/team-transfer-request.tsx
 msgid "By accepting this request, you will take responsibility for any billing items associated with this team."
@@ -1718,6 +1640,7 @@ msgid "Clear file"
 msgstr "Rimuovi file"
 
 #: packages/ui/primitives/data-table.tsx
+#: packages/ui/primitives/data-table-table.tsx
 msgid "Clear filters"
 msgstr "Cancella filtri"
 
@@ -1813,7 +1736,6 @@ msgstr "Completa la Visualizzazione"
 #: apps/remix/app/components/general/document/document-status.tsx
 #: packages/lib/constants/document.ts
 #: packages/email/template-components/template-document-self-signed.tsx
-#: packages/email/template-components/template-document-recipient-signed.tsx
 #: packages/email/template-components/template-document-completed.tsx
 msgid "Completed"
 msgstr "Completato"
@@ -1975,6 +1897,7 @@ msgstr "Continua per accedere"
 #: apps/remix/app/routes/_authenticated+/contracts.$id.$runId.$publicAccessToken.retry.tsx
 #: apps/remix/app/components/general/app-nav-mobile-team.tsx
 #: apps/remix/app/components/general/app-nav-desktop-team.tsx
+#: apps/remix/app/components/general/app-command-menu.tsx
 msgid "Contracts"
 msgstr ""
 
@@ -2182,6 +2105,7 @@ msgid "Create your account and start using state-of-the-art document signing. Op
 msgstr "Crea il tuo account e inizia a utilizzare firme digitali all'avanguardia. Una firma aperta e bella è a tua portata."
 
 #: apps/remix/app/routes/_authenticated+/admin+/documents._index.tsx
+#: apps/remix/app/components/tables/tustreams-table.tsx
 #: apps/remix/app/components/tables/templates-table.tsx
 #: apps/remix/app/components/tables/settings-security-passkey-table.tsx
 #: apps/remix/app/components/tables/releases-table.tsx
@@ -2277,7 +2201,6 @@ msgid "Date Format"
 msgstr "Formato data"
 
 #: apps/remix/app/components/general/teams/team-invitations.tsx
-#: packages/email/templates/team-invite.tsx
 msgid "Decline"
 msgstr "Declina"
 
@@ -2405,10 +2328,6 @@ msgstr "Dettagli"
 #: apps/remix/app/components/tables/settings-security-activity-table.tsx
 msgid "Device"
 msgstr "Dispositivo"
-
-#: packages/email/templates/reset-password.tsx
-msgid "Didn't request a password change? We are here to help you secure your account, just <0>contact us.</0>"
-msgstr "Non hai richiesto un cambio di password? Siamo qui per aiutarti a proteggere il tuo account, basta <0>contattarci.</0>"
 
 #: apps/remix/app/components/tables/templates-table.tsx
 #: apps/remix/app/components/general/template/template-direct-link-badge.tsx
@@ -3151,6 +3070,8 @@ msgstr "Inserisci il tuo nome"
 msgid "Enter your text here"
 msgstr "Inserisci il tuo testo qui"
 
+#: apps/remix/app/components/general/task/tustreams-type.tsx
+#: apps/remix/app/components/general/task/tustreams-type.tsx
 #: apps/remix/app/components/general/task/release-type.tsx
 #: apps/remix/app/components/general/task/release-type.tsx
 msgid "EP"
@@ -3301,10 +3222,6 @@ msgstr ""
 msgid "Failed to update webhook"
 msgstr "Aggiornamento webhook fallito"
 
-#: packages/email/templates/bulk-send-complete.tsx
-msgid "Failed: {failedCount}"
-msgstr "Falliti: {failedCount}"
-
 #: apps/remix/app/components/tables/distribution-table.tsx
 msgid "Fecha de Creación"
 msgstr ""
@@ -3421,7 +3338,6 @@ msgstr "Password dimenticata?"
 
 #: apps/remix/app/routes/_unauthenticated+/forgot-password.tsx
 #: apps/remix/app/components/forms/signin.tsx
-#: packages/email/template-components/template-forgot-password.tsx
 msgid "Forgot your password?"
 msgstr "Hai dimenticato la tua password?"
 
@@ -3539,14 +3455,6 @@ msgstr "Qui puoi impostare preferenze e valori predefiniti per il tuo team."
 #: apps/remix/app/components/dialogs/template-direct-link-dialog.tsx
 msgid "Here's how it works:"
 msgstr "Ecco come funziona:"
-
-#: packages/email/templates/bulk-send-complete.tsx
-msgid "Hi {userName},"
-msgstr "Ciao {userName},"
-
-#: packages/email/templates/reset-password.tsx
-msgid "Hi, {userName} <0>({userEmail})</0>"
-msgstr "Ciao, {userName} <0>({userEmail})</0>"
 
 #: apps/remix/app/routes/_authenticated+/settings+/public-profile.tsx
 #: apps/remix/app/components/tables/documents-table-action-dropdown.tsx
@@ -3757,10 +3665,6 @@ msgstr "Attualmente non è il tuo turno di firmare. Torna presto a controllare p
 msgid "It's currently not your turn to sign. You will receive an email with instructions once it's your turn to sign the document."
 msgstr "Al momento, non è il tuo turno di firmare. Riceverai un'email con le istruzioni quando sarà il tuo turno di firmare il documento."
 
-#: packages/email/templates/team-invite.tsx
-msgid "Join {teamName}"
-msgstr ""
-
 #: packages/ui/primitives/document-flow/field-items-advanced-settings/text-field.tsx
 #: packages/ui/primitives/document-flow/field-items-advanced-settings/radio-field.tsx
 #: packages/ui/primitives/document-flow/field-items-advanced-settings/number-field.tsx
@@ -3775,6 +3679,10 @@ msgstr "Etichetta"
 #: packages/ui/primitives/document-flow/add-settings.tsx
 msgid "Language"
 msgstr "Lingua"
+
+#: apps/remix/app/components/tables/releases-table.tsx
+msgid "Lanzamiento"
+msgstr ""
 
 #: apps/remix/app/components/general/period-selector.tsx
 msgid "Last 14 days"
@@ -3834,7 +3742,6 @@ msgid "Like to have your own public profile with agreements?"
 msgstr "Ti piacerebbe avere il tuo profilo pubblico con accordi?"
 
 #: packages/email/templates/team-transfer-request.tsx
-#: packages/email/templates/confirm-team-email.tsx
 msgid "Link expires in 1 hour."
 msgstr "Il link scade tra 1 ora."
 
@@ -4098,10 +4005,7 @@ msgstr "Sposta nel team"
 msgid "Moving..."
 msgstr "Spostamento..."
 
-#: apps/remix/app/routes/_authenticated+/music._index.tsx
-#: apps/remix/app/components/general/app-nav-mobile-team.tsx
 #: apps/remix/app/components/general/app-nav-desktop.tsx
-#: apps/remix/app/components/general/app-nav-desktop-team.tsx
 msgid "Music"
 msgstr ""
 
@@ -4260,6 +4164,7 @@ msgid "No restrictions"
 msgstr "Nessuna restrizione"
 
 #: packages/ui/primitives/data-table.tsx
+#: packages/ui/primitives/data-table-table.tsx
 msgid "No results found"
 msgstr "Nessun risultato trovato"
 
@@ -4488,20 +4393,11 @@ msgstr "Le passkey permettono di autenticarsi usando dati biometrici, gestori di
 msgid "Passkeys are not supported on this browser"
 msgstr "Le passkey non sono supportate su questo browser"
 
-#: apps/remix/app/components/general/app-command-menu.tsx
 #: apps/remix/app/components/forms/signup.tsx
 #: apps/remix/app/components/forms/signin.tsx
 #: apps/remix/app/components/forms/reset-password.tsx
 msgid "Password"
 msgstr "\"Password\""
-
-#: packages/email/templates/forgot-password.tsx
-msgid "Password Reset Requested"
-msgstr "Richiesta di reimpostazione password"
-
-#: packages/email/templates/reset-password.tsx
-msgid "Password Reset Successful"
-msgstr "Reimpostazione password riuscita"
 
 #: apps/remix/app/components/general/claim-account.tsx
 #: apps/remix/app/components/forms/signup.tsx
@@ -4512,10 +4408,6 @@ msgstr "La password non deve essere comune o basata su informazioni personali"
 #: apps/remix/app/components/forms/password.tsx
 msgid "Password updated"
 msgstr "Password aggiornato"
-
-#: packages/email/template-components/template-reset-password.tsx
-msgid "Password updated!"
-msgstr "Password aggiornata!"
 
 #: apps/remix/app/components/tables/user-settings-pending-teams-table-actions.tsx
 msgid "Pay"
@@ -4592,10 +4484,6 @@ msgstr "Segnaposto"
 #: packages/email/template-components/template-document-invite.tsx
 msgid "Please {0} your document<0/>\"{documentName}\""
 msgstr "Per favore {0} il tuo documento<0/>\"{documentName}\""
-
-#: packages/email/templates/document-invite.tsx
-msgid "Please {action} your document {documentName}"
-msgstr "Per favore {action} il tuo documento {documentName}"
 
 #: packages/lib/jobs/definitions/emails/send-signing-email.handler.ts
 msgid "Please {recipientActionVerb} this document"
@@ -4983,11 +4871,13 @@ msgid "Rejection reason: {reason}"
 msgstr "Motivo del rifiuto: {reason}"
 
 #: apps/remix/app/components/tables/releases-table.tsx
+msgid "Release"
+msgstr ""
+
 #: apps/remix/app/components/tables/lpm-table.tsx
 msgid "Release Status"
 msgstr ""
 
-#: apps/remix/app/components/tables/releases-table.tsx
 #: apps/remix/app/components/tables/lpm-table.tsx
 msgid "Release Title"
 msgstr ""
@@ -5094,7 +4984,6 @@ msgstr "Email di reset inviato"
 #: apps/remix/app/routes/_unauthenticated+/reset-password.$token.tsx
 #: apps/remix/app/components/forms/reset-password.tsx
 #: apps/remix/app/components/forms/forgot-password.tsx
-#: packages/email/template-components/template-forgot-password.tsx
 msgid "Reset Password"
 msgstr "Reimposta password"
 
@@ -5204,7 +5093,6 @@ msgstr "Salva modello"
 #: apps/remix/app/components/tables/distribution-table-territoriesName-filter.tsx
 #: apps/remix/app/components/tables/distribution-table-musicplatform-filter.tsx
 #: apps/remix/app/components/general/app-nav-desktop.tsx
-#: apps/remix/app/components/general/app-nav-desktop-team.tsx
 msgid "Search"
 msgstr "Cerca"
 
@@ -5289,6 +5177,8 @@ msgstr "Seleziona opzione predefinita"
 msgid "Select passkey"
 msgstr "Seleziona una chiave di accesso"
 
+#: apps/remix/app/components/general/task/tustreams-type.tsx
+#: apps/remix/app/components/general/task/tustreams-type.tsx
 #: apps/remix/app/components/general/task/release-type.tsx
 #: apps/remix/app/components/general/task/release-type.tsx
 msgid "Sencillo"
@@ -5328,10 +5218,6 @@ msgstr "Invia email documento eliminato"
 #: packages/ui/components/document/document-email-checkboxes.tsx
 msgid "Send document pending email"
 msgstr "Invia email documento in sospeso"
-
-#: packages/email/templates/confirm-team-email.tsx
-msgid "Send documents on behalf of the team using the email address"
-msgstr "Invia documenti a nome del team utilizzando l'indirizzo email"
 
 #: apps/remix/app/components/dialogs/template-bulk-send-dialog.tsx
 msgid "Send documents to recipients immediately"
@@ -5485,7 +5371,6 @@ msgstr "Firma qui"
 
 #: apps/remix/app/components/forms/signin.tsx
 #: apps/remix/app/components/forms/signin.tsx
-#: packages/email/template-components/template-reset-password.tsx
 msgid "Sign In"
 msgstr "Accedi"
 
@@ -5631,6 +5516,11 @@ msgstr "Le iscrizioni sono disabilitate."
 msgid "Since {0}"
 msgstr "Dal {0}"
 
+#: apps/remix/app/components/general/task/tustreams-type.tsx
+#: apps/remix/app/components/general/task/tustreams-type.tsx
+msgid "Single"
+msgstr ""
+
 #: apps/remix/app/routes/_authenticated+/admin+/site-settings.tsx
 msgid "Site Banner"
 msgstr "Banner del sito"
@@ -5730,6 +5620,7 @@ msgid "Something went wrong!"
 msgstr "Qualcosa è andato storto!"
 
 #: packages/ui/primitives/data-table.tsx
+#: packages/ui/primitives/data-table-table.tsx
 msgid "Something went wrong."
 msgstr "Qualcosa è andato storto."
 
@@ -5829,14 +5720,6 @@ msgstr "Successo"
 #: apps/remix/app/components/dialogs/passkey-create-dialog.tsx
 msgid "Successfully created passkey"
 msgstr "Chiave di accesso creata con successo"
-
-#: packages/email/templates/bulk-send-complete.tsx
-msgid "Successfully created: {successCount}"
-msgstr "Creati con successo: {successCount}"
-
-#: packages/email/templates/bulk-send-complete.tsx
-msgid "Summary:"
-msgstr "Sommario:"
 
 #: apps/remix/app/routes/_unauthenticated+/articles.signature-disclosure.tsx
 msgid "System Requirements"
@@ -6114,10 +5997,6 @@ msgstr "Colore del testo"
 msgid "Thank you for using LPM to perform your electronic document signing. The purpose of this disclosure is to inform you about the process, legality, and your rights regarding the use of electronic signatures on our platform. By opting to use an electronic signature, you are agreeing to the terms and conditions outlined below."
 msgstr "Grazie per aver utilizzato LPM per eseguire la firma elettronica dei tuoi documenti. Lo scopo di questa divulgazione è informarti sul processo, la legalità e i tuoi diritti riguardanti l'uso delle firme elettroniche sulla nostra piattaforma. Optando per l'utilizzo di una firma elettronica, accetti i termini e le condizioni delineati di seguito."
 
-#: packages/email/template-components/template-forgot-password.tsx
-msgid "That's okay, it happens! Click the button below to reset your password."
-msgstr "Va bene, succede! Fai clic sul pulsante qui sotto per reimpostare la tua password."
-
 #: apps/remix/app/components/dialogs/admin-user-delete-dialog.tsx
 msgid "The account has been deleted successfully."
 msgstr "L'account è stato eliminato con successo."
@@ -6227,10 +6106,6 @@ msgstr ""
 #: apps/remix/app/components/dialogs/template-move-to-folder-dialog.tsx
 msgid "The folder you are trying to move the template to does not exist."
 msgstr ""
-
-#: packages/email/templates/bulk-send-complete.tsx
-msgid "The following errors occurred:"
-msgstr "Si sono verificati i seguenti errori:"
 
 #: packages/email/templates/team-delete.tsx
 msgid "The following team has been deleted by its owner. You will no longer be able to access this team and its documents"
@@ -6669,6 +6544,7 @@ msgid "Tipo de Precio"
 msgstr ""
 
 #: apps/remix/app/routes/_authenticated+/admin+/documents._index.tsx
+#: apps/remix/app/components/tables/tustreams-table.tsx
 #: apps/remix/app/components/tables/templates-table.tsx
 #: apps/remix/app/components/tables/documents-table.tsx
 #: apps/remix/app/components/tables/documents-chatspace-table.tsx
@@ -6784,6 +6660,10 @@ msgstr "Il token è scaduto. Per favore riprova."
 msgid "Token name"
 msgstr "Nome del token"
 
+#: apps/remix/app/components/tables/tustreams-table.tsx
+msgid "Total"
+msgstr ""
+
 #: apps/remix/app/routes/_authenticated+/admin+/stats.tsx
 msgid "Total Documents"
 msgstr "Totale documenti"
@@ -6791,10 +6671,6 @@ msgstr "Totale documenti"
 #: apps/remix/app/routes/_authenticated+/admin+/stats.tsx
 msgid "Total Recipients"
 msgstr "Totale destinatari"
-
-#: packages/email/templates/bulk-send-complete.tsx
-msgid "Total rows processed: {totalProcessed}"
-msgstr "Righe totali elaborate: {totalProcessed}"
 
 #: apps/remix/app/routes/_authenticated+/admin+/stats.tsx
 msgid "Total Signers that Signed Up"
@@ -6828,6 +6704,12 @@ msgstr "Trasferisci la proprietà del team a un altro membro del team."
 msgid "Triggers"
 msgstr "Trigger"
 
+#: apps/remix/app/routes/_authenticated+/tustreams._index.tsx
+#: apps/remix/app/components/general/app-nav-mobile-team.tsx
+#: apps/remix/app/components/general/app-nav-desktop-team.tsx
+msgid "TuStreams"
+msgstr ""
+
 #: apps/remix/app/routes/_authenticated+/settings+/security._index.tsx
 msgid "Two factor authentication"
 msgstr "Autenticazione a due fattori"
@@ -6856,6 +6738,7 @@ msgstr "L'autenticazione a due fattori è stata disattivata per il tuo account. 
 msgid "Two-Factor Re-Authentication"
 msgstr "Ri-autenticazione a due fattori"
 
+#: apps/remix/app/components/tables/tustreams-table.tsx
 #: apps/remix/app/components/tables/templates-table.tsx
 #: apps/remix/app/components/tables/releases-table.tsx
 #: apps/remix/app/components/tables/lpm-table.tsx
@@ -6981,6 +6864,7 @@ msgstr "Sconosciuto"
 msgid "Unpaid"
 msgstr "Non pagato"
 
+#: apps/remix/app/components/tables/tustreams-table.tsx
 #: apps/remix/app/components/tables/distribution-table.tsx
 msgid "UPC"
 msgstr ""
@@ -7266,10 +7150,6 @@ msgstr "Verifica il tuo indirizzo email per sbloccare tutte le funzionalità."
 msgid "Verify your email to upload documents."
 msgstr "Verifica il tuo email per caricare documenti."
 
-#: packages/email/templates/confirm-team-email.tsx
-msgid "Verify your team email address"
-msgstr "Verifica il tuo indirizzo email del team"
-
 #: apps/remix/app/routes/_internal+/[__htmltopdf]+/audit-log.tsx
 msgid "Version History"
 msgstr "Cronologia delle versioni"
@@ -7295,10 +7175,6 @@ msgstr "Visualizza"
 #: apps/remix/app/routes/_authenticated+/settings+/security._index.tsx
 msgid "View activity"
 msgstr "Visualizza attività"
-
-#: packages/email/templates/confirm-team-email.tsx
-msgid "View all documents sent to and from this email address"
-msgstr "Visualizza tutti i documenti inviati a o da questo indirizzo email"
 
 #: apps/remix/app/components/general/teams/team-email-usage.tsx
 msgid "View all documents sent to your account"
@@ -7383,6 +7259,12 @@ msgstr "Visualizzazione"
 #: apps/remix/app/components/general/task/contracts-status.tsx
 #: apps/remix/app/components/general/task/contracts-status.tsx
 msgid "Vigente"
+msgstr ""
+
+#: apps/remix/app/routes/_authenticated+/music._index.tsx
+#: apps/remix/app/components/general/app-nav-mobile-team.tsx
+#: apps/remix/app/components/general/app-nav-desktop-team.tsx
+msgid "Virgin"
 msgstr ""
 
 #: apps/remix/app/components/general/stack-avatars-with-tooltip.tsx
@@ -7647,10 +7529,6 @@ msgstr "Siamo tutti vuoti"
 msgid "We're still waiting for other signers to sign this document.<0/>We'll notify you as soon as it's ready."
 msgstr "Stiamo ancora aspettando che altri firmatari firmino questo documento.<0/>Ti avviseremo non appena sarà pronto."
 
-#: packages/email/templates/reset-password.tsx
-msgid "We've changed your password as you asked. You can now sign in with your new password."
-msgstr "Abbiamo cambiato la tua password come richiesto. Ora puoi accedere con la tua nuova password."
-
 #: apps/remix/app/components/general/verify-email-banner.tsx
 msgid "We've sent a confirmation email to <0>{email}</0>. Please check your inbox and click the link in the email to verify your account."
 msgstr "Abbiamo inviato un'email di conferma a <0>{email}</0>. Controlla la tua casella di posta e clicca sul link nell'email per verificare il tuo account."
@@ -7679,6 +7557,9 @@ msgid "Webhooks"
 msgstr "Webhook"
 
 #: apps/remix/app/components/tables/releases-table.tsx
+msgid "WebSite Updates"
+msgstr ""
+
 #: apps/remix/app/components/tables/lpm-table.tsx
 msgid "WebSiteUpdates"
 msgstr ""
@@ -7818,10 +7699,6 @@ msgstr "Puoi scegliere di abilitare o disabilitare il profilo del tuo team per l
 msgid "You can copy and share these links to recipients so they can action the document."
 msgstr "Puoi copiare e condividere questi link con i destinatari affinché possano agire sul documento."
 
-#: packages/email/templates/confirm-team-email.tsx
-msgid "You can revoke access at any time in your team settings <0>here.</0>"
-msgstr ""
-
 #: apps/remix/app/components/forms/public-profile-form.tsx
 msgid "You can update the profile URL by updating the team URL in the general settings page."
 msgstr "Puoi aggiornare l'URL del profilo aggiornando l'URL del team nella pagina delle impostazioni generali."
@@ -7833,10 +7710,6 @@ msgstr "Puoi utilizzare le seguenti variabili nel tuo messaggio:"
 #: apps/remix/app/routes/_authenticated+/t.$teamUrl+/settings._index.tsx
 msgid "You can view documents associated with this email and use this identity when sending documents."
 msgstr "Puoi visualizzare i documenti associati a questa email e utilizzare questa identità quando invii documenti."
-
-#: packages/email/templates/bulk-send-complete.tsx
-msgid "You can view the created documents in your dashboard under the \"Documents created from template\" section."
-msgstr "Puoi visualizzare i documenti creati nel tuo dashboard nella sezione \"Documenti creati dal modello\"."
 
 #: packages/email/template-components/template-document-rejected.tsx
 msgid "You can view the document and its status by clicking the button below."
@@ -7903,15 +7776,6 @@ msgstr "Hai già verificato il tuo indirizzo email per <0>{0}</0>."
 #: apps/remix/app/routes/_unauthenticated+/team.decline.$token.tsx
 msgid "You have been invited by <0>{0}</0> to join their team."
 msgstr "Sei stato invitato da <0>{0}</0> a unirti al loro team."
-
-#. placeholder {0}: team.name
-#: packages/lib/server-only/team/create-team-member-invites.ts
-msgid "You have been invited to join {0}"
-msgstr ""
-
-#: packages/email/templates/team-invite.tsx
-msgid "You have been invited to join the following team"
-msgstr "Sei stato invitato a unirti al seguente team"
 
 #: packages/lib/server-only/recipient/set-document-recipients.ts
 #: packages/lib/server-only/recipient/delete-document-recipient.ts
@@ -8093,10 +7957,6 @@ msgstr "Le tue preferenze di branding sono state aggiornate"
 msgid "Your bulk send has been initiated. You will receive an email notification upon completion."
 msgstr "Il tuo invio massivo è stato avviato. Riceverai una notifica via email al completamento."
 
-#: packages/email/templates/bulk-send-complete.tsx
-msgid "Your bulk send operation for template \"{templateName}\" has completed."
-msgstr "La tua operazione di invio massivo per il modello \"{templateName}\" è stata completata."
-
 #: apps/remix/app/routes/_authenticated+/settings+/billing.tsx
 msgid "Your current plan is past due. Please update your payment information."
 msgstr "Il tuo piano attuale è scaduto. Aggiorna le informazioni di pagamento."
@@ -8183,10 +8043,6 @@ msgstr "La tua nuova password non può essere la stessa della vecchia password."
 #: apps/remix/app/components/forms/password.tsx
 msgid "Your password has been updated successfully."
 msgstr "La tua password è stata aggiornata con successo."
-
-#: packages/email/template-components/template-reset-password.tsx
-msgid "Your password has been updated."
-msgstr "La tua password è stata aggiornata."
 
 #: apps/remix/app/components/general/teams/team-layout-billing-banner.tsx
 msgid "Your payment for teams is overdue. Please settle the payment to avoid any service disruptions."

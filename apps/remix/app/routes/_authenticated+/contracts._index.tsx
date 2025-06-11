@@ -4,12 +4,13 @@ import { Trans } from '@lingui/react/macro';
 import { FolderIcon, HomeIcon, Loader2 } from 'lucide-react';
 import { useNavigate, useSearchParams } from 'react-router';
 import { Link } from 'react-router';
+import { z } from 'zod';
 
 import { FolderType } from '@documenso/lib/types/folder-type';
 import { formatAvatarUrl } from '@documenso/lib/utils/avatars';
 import { parseCsvFile } from '@documenso/lib/utils/csvParser';
 import { formatContractsPath } from '@documenso/lib/utils/teams';
-import { type Contract, type IsrcSongs } from '@documenso/prisma/client';
+import { type Contract } from '@documenso/prisma/client';
 import { ExtendedContractStatus } from '@documenso/prisma/types/extended-contracts';
 import { trpc } from '@documenso/trpc/react';
 import {
@@ -24,6 +25,7 @@ import ContractForm from '@documenso/ui/primitives/form-contracts';
 import { Tabs, TabsList, TabsTrigger } from '@documenso/ui/primitives/tabs';
 import { useToast } from '@documenso/ui/primitives/use-toast';
 
+import { AdvancedFilterDialog } from '~/components/dialogs/advanced-filte-dialog';
 import { CreateFolderDialogContract } from '~/components/dialogs/folder-create-dialog-contracts';
 import { FolderDeleteDialog } from '~/components/dialogs/folder-delete-dialog';
 import { FolderMoveDialog } from '~/components/dialogs/folder-move-dialog';
@@ -37,13 +39,6 @@ import { GeneralTableEmptyState } from '~/components/tables/general-table-empty-
 import { useOptionalCurrentTeam } from '~/providers/team';
 import { appMetaTags } from '~/utils/meta';
 
-// import { type IsrcSongsData } from '@documenso/ui/primitives/types';
-
-type CsvColumnMapping = {
-  csvColumn: string;
-  field: keyof Omit<IsrcSongs, 'id'> | '';
-};
-
 export function meta() {
   return appMetaTags('Contracts');
 }
@@ -56,8 +51,68 @@ const ZSearchParamsSchema = ZFindContractsInternalRequestSchema.pick({
   query: true,
 });
 
+const sortColumns = z
+  .enum([
+    'id',
+    'createdAt',
+    'updatedAt',
+    'status',
+    'title',
+    'fileName',
+    'startDate',
+    'endDate',
+    'isPossibleToExpand',
+    'possibleExtensionTime',
+    'documentId',
+  ])
+  .optional();
+
+export const TypeSearchParams = z.record(
+  z.string(),
+  z.union([z.string(), z.array(z.string()), z.undefined()]),
+);
+
 export default function ContractsPage() {
   const [searchParams] = useSearchParams();
+
+  const sort = useMemo(
+    () => TypeSearchParams.safeParse(Object.fromEntries(searchParams.entries())).data || {},
+    [searchParams],
+  );
+
+  const columnOrder = useMemo(() => {
+    if (sort.sort) {
+      try {
+        const parsedSort = JSON.parse(sort.sort as string);
+        if (Array.isArray(parsedSort) && parsedSort.length > 0) {
+          const { id } = parsedSort[0];
+          const isValidColumn = sortColumns.safeParse(id);
+          return isValidColumn.success ? id : undefined;
+        }
+      } catch (error) {
+        console.error('Error parsing sort parameter:', error);
+        return 'title';
+      }
+    }
+    return 'title';
+  }, [sort]);
+
+  const columnDirection = useMemo(() => {
+    if (sort.sort) {
+      try {
+        const parsedSort = JSON.parse(sort.sort as string);
+        if (Array.isArray(parsedSort) && parsedSort.length > 0) {
+          const { desc } = parsedSort[0];
+          return desc ? 'desc' : 'asc';
+        }
+      } catch (error) {
+        console.error('Error parsing sort parameter:', error);
+        return 'asc';
+      }
+    }
+    return 'asc';
+  }, [sort]);
+
   const team = useOptionalCurrentTeam();
   const navigate = useNavigate();
 
@@ -86,21 +141,22 @@ export default function ContractsPage() {
     page: findDocumentSearchParams.page,
     perPage: findDocumentSearchParams.perPage,
     status: findDocumentSearchParams.status,
+    orderByColumn: columnOrder,
+    orderByDirection: columnDirection,
   });
 
   const retryDocument = trpc.document.retryChatDocument.useMutation();
 
   const {
     data: documentsData,
-    isLoading: isDocumentsLoading,
-    isLoadingError: isDocumentsLoadingError,
-    refetch: refetchDocuments,
+    // isLoading: isDocumentsLoading,
+    // isLoadingError: isDocumentsLoadingError,
+    // refetch: refetchDocuments,
   } = trpc.document.findAllDocumentsInternalUseToChat.useQuery({
     query: findDocumentSearchParams.query,
     period: findDocumentSearchParams.period,
     page: findDocumentSearchParams.page,
     perPage: findDocumentSearchParams.perPage,
-    // Omit the status parameter as it doesn't match the expected enum values
   });
 
   const { mutateAsync: pinFolder } = trpc.folder.pinFolder.useMutation();
@@ -109,7 +165,7 @@ export default function ContractsPage() {
   const {
     data: foldersData,
     isLoading: isFoldersLoading,
-    refetch: refetchFolders,
+    // refetch: refetchFolders,
   } = trpc.folder.getFolders.useQuery({
     type: FolderType.CONTRACT,
     parentId: null,
@@ -121,8 +177,6 @@ export default function ContractsPage() {
   const deleteContractsMutation = trpc.contracts.deleteContractsById.useMutation();
   const deleteMultipleContractsMutation = trpc.contracts.deleteMultipleContractsByIds.useMutation();
   const { toast } = useToast();
-
-  // type ContractsData = (typeof data.contracts)[number];
   const [dataIntial, setData] = useState<Contract[]>([]);
   const [editingUser, setEditingUser] = useState<Contract | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -211,7 +265,8 @@ export default function ContractsPage() {
 
       try {
         // Asume formato MM/dd/yyyy
-        let [month, day, year] = dateString.split('/');
+        let [month, day] = dateString.split('/');
+        const year = dateString.split('/')[2];
         if (!month || !day || !year) return undefined;
 
         // if ( day > '31' || year.length !== 4) {
@@ -326,7 +381,7 @@ export default function ContractsPage() {
   const handleCreate = async (newRecord: Omit<Contract, 'id'>) => {
     setIsSubmitting(true);
     try {
-      const { id } = await createContractsMutation.mutateAsync({
+      await createContractsMutation.mutateAsync({
         title: newRecord.title ?? '',
         fileName: newRecord.fileName ?? '',
         artists: newRecord.artists ?? '',
@@ -352,11 +407,9 @@ export default function ContractsPage() {
     window.location.href = documentPath;
   };
   const handleUpdate = async (updatedContracts: Contract) => {
-    console.log('Updated User:', updatedContracts);
-    console.log('id', updatedContracts.id);
     setIsSubmitting(true);
     try {
-      const { id } = await updateContractsMutation.mutateAsync({
+      await updateContractsMutation.mutateAsync({
         id: updatedContracts.id,
         title: updatedContracts.title ?? '',
         artists: updatedContracts.artists ?? '',
@@ -369,8 +422,6 @@ export default function ContractsPage() {
         documentId: updatedContracts.documentId ?? undefined,
         summary: updatedContracts.summary ?? undefined,
       });
-
-      console.log('Updated Record ID:', id);
 
       setData(
         dataIntial.map((record) => (record.id === updatedContracts.id ? updatedContracts : record)),
@@ -404,7 +455,6 @@ export default function ContractsPage() {
 
   const handleMultipleDelete = async (ids: number[]) => {
     try {
-      console.log('Deleting records with IDs in index contracts:', ids);
       await deleteMultipleContractsMutation.mutateAsync({ ids: ids });
 
       toast({
@@ -566,7 +616,7 @@ export default function ContractsPage() {
         <div className="-m-1 flex flex-wrap gap-x-4 gap-y-6 overflow-hidden p-1">
           <div className="flex w-full flex-wrap items-center justify-between gap-x-2 gap-y-4">
             <Tabs value={findDocumentSearchParams.status || 'ALL'} className="overflow-x-auto">
-              <TabsList>
+              <TabsList className="flex h-fit flex-wrap sm:flex">
                 {['VIGENTE', 'NO_ESPECIFICADO', 'FINALIZADO', 'ALL'].map((value) => {
                   return (
                     <TabsTrigger
@@ -592,8 +642,12 @@ export default function ContractsPage() {
                 })}
               </TabsList>
             </Tabs>
-            <Button onClick={openCreateDialog}>Add Item</Button>
-            <div className="flex w-48 flex-wrap items-center justify-between gap-x-2 gap-y-4">
+
+            <Button className="w-full sm:w-fit" onClick={openCreateDialog}>
+              Add Item
+            </Button>
+            <AdvancedFilterDialog tableToConsult="Contracts" />
+            <div className="flex w-full flex-wrap items-center justify-between gap-x-2 gap-y-4 sm:w-48">
               <DocumentSearch initialValue={findDocumentSearchParams.query} />
             </div>
           </div>
